@@ -1,0 +1,20 @@
+{
+  "name": "oauth2take2",
+  "version": "1.0.0",
+  "description": "tutorial ticketing system",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Simon Stern",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "r-oauth2": "^0.2.3",
+    "rethink-config": "^0.2.0",
+    "rethinkdbdash": "^2.2.17"
+  }
+}
