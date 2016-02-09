@@ -1,6 +1,5 @@
 var app = angular.module("ticketmodule", []);
 app.controller("controller", function($scope, $http, $location){
-  $scope.updateTicketTable();
 
   $scope.openTickets = [];
 

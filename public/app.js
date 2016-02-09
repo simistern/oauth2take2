@@ -39,9 +39,17 @@ app.controller("controller", function($scope, $http, $location){
         "client": $scope.login
       }
     }).then(function(res){
-      window.location.assign("/ticketpage.html");
-      //alert("user Logged in!");
       $scope.accessToken = res.data.accessToken;
+      if($scope.login.grantType == "customer"){
+        window.location.assign("/clientticketsubmit.html");
+    }else if($scope.login.grantType == "admin"){
+       window.location.assign("/ticketadminpage.html");
+    }
+    else{
+        console.log("Checking client ticket " + JSON.stringify($scope.login));
+        //alert("Sorry you are not customer");
+      }
+      //alert("user Logged in!");
     }, function(err){
       alert("Please try again");
     })

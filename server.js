@@ -29,6 +29,20 @@ app.use(express.static("./public"));
 
 var bcrypt = require("bcrypt");
 
+
+app.post("/ticketsubmission", function(req,res,next){
+  console.log("Server side test " + JSON.stringify(req.body));
+  r.db("PilotTicketDB").table("ticketTable").insert({
+    "title": req.body.title,
+    "message" : req.body.message,
+  }).then(function(){
+    return res.status(200).send({
+      "msg": "Uploaded ticket"
+    })
+  })
+})
+
+
 app.post("/register", function(req,res,next){
   var err = false;
   var msg = [];
@@ -82,7 +96,7 @@ app.get("/updateTable", function(req,res,next){
 });
 
 app.get("/restricted", oauth2.authenticate(), function(req,res,next){
-  res.status(200).sendFile(__dirname + "/public/ticketpage.html")
+  res.status(200).sendFile(__dirname + "/public/ticketadminpage.html")
 });
 
 var PORT = 3000;
