@@ -1,8 +1,25 @@
 <!DOCTYPE HTML>
 <html>
 
-  <body align="center">
-      <h1> Hello Welcome</h1>
+<body ng-app="ticketmodule" ng-controller="controller">
+
+  <div class="container">
+    <h1>Welcome To Pilots interactive Ticket page</h1>
+    <table class="pure-table">
+      <th>Client Name</th><th>Time ticket submitted</th><th>title</th>
+      <tr ng-repeat="ticket in ticketlist">
+      <td>{{ticket.clientId}}</td>
+      <td>{{ticket.timeSubmitted}}</td>
+      <td>{{ticket.title}}</td>
+    </tr>
+    </table>
+      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  </div>
+
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"> </script>
+  <script src="./ticketsystem.js"></script>
+
   </body>
 
 </html>

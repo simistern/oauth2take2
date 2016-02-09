@@ -75,10 +75,31 @@ app.post("/register", function(req,res,next){
 
 app.post("/login", oauth2.generateToken());
 
+app.get("/updateTable", function(req,res,next){
+  r.db("PilotTicketDB").table("ticketTable").then(function(result){
+    res.status(200).send(result);
+  })
+});
+
 app.get("/restricted", oauth2.authenticate(), function(req,res,next){
-  res.status(200).send("Restricted area accessed!").sendFile(__dirname + "/public/ticketpage.html")
+  res.status(200).sendFile(__dirname + "/public/ticketpage.html")
 });
 
 var PORT = 3000;
 app.listen(PORT);
 console.log("Oauth tutorial listening on port " + PORT);
+
+
+/*
+PilotTicketDB
+Tickets Table
+```UserId (who posted it)
+Title
+Description
+```
+Messages Table
+```Ticket ID (which ticket)
+User ID (who posted it)
+Message
+
+*/

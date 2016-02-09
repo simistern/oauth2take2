@@ -1,7 +1,6 @@
-//Project started from scratch at 3:30pm
 
 var app = angular.module("oauth2", []);
-app.controller("controller", function($scope, $http){
+app.controller("controller", function($scope, $http, $location){
   $scope.signup = {
     "clientId":"",
     "clientSecret":"",
@@ -40,7 +39,8 @@ app.controller("controller", function($scope, $http){
         "client": $scope.login
       }
     }).then(function(res){
-      alert("user Logged in!");
+      window.location.assign("/ticketpage.html");
+      //alert("user Logged in!");
       $scope.accessToken = res.data.accessToken;
     }, function(err){
       alert("Please try again");
