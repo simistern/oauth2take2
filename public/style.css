@@ -10,6 +10,10 @@ h1 {
   margin: 15px;
 }
 
+.inputtickertitle{
+  padding-left: 50px;
+}
+
 .box {
   padding: 15px;
   margin: 15px;
